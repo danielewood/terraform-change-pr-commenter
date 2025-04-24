@@ -55,7 +55,7 @@ async function getJobId() {
 `;
       } else {
         console.log(`Could not find job with name: ${currentJobName}`);
-        console.log(`Available jobs: ${response.data.jobs.map(job => job.name).join(", ")}`);
+        console.log(`Raw Response:`, response.data);
         return "";
       }
     } catch (error) {
