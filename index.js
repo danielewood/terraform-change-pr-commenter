@@ -16,8 +16,10 @@ const includeLinkToJob = core.getBooleanInput("include-job-link");
 const hidePreviousComments = core.getBooleanInput("hide-previous-comments");
 const logChangedResources = core.getBooleanInput("log-changed-resources");
 
-// Get current job name from GitHub environment variable
-const currentJobName = process.env.GITHUB_JOB || '';
+
+// Get current job name, account for matrix workflows
+const matrix = JSON.parse(process.env.matrix);
+const currentJobName = `${context.job}${matrix ? ` (${Object.values(matrix).join(", ")})` : ""}`;
 
 // Log the job name for debugging
 console.log('Current job name:', currentJobName);
