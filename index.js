@@ -22,7 +22,7 @@ const matrix = JSON.parse(process.env.matrix);
 const currentJobName = `${context.job}${matrix ? ` (${Object.values(matrix).join(", ")})` : ""}`;
 
 // Log the job name for debugging
-console.log('Current job name:', currentJobName);
+console.log('Current job nameeeeeeee:', currentJobName);
 
 const workflowLink = includeLinkToWorkflow
   ? `
